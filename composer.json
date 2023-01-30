@@ -1,0 +1,31 @@
+{
+    "name": "guilherme/calendar",
+    "description": "Melhorando a minha produtividade com a agenda calendario",
+    "require": {
+        "coffeecode/router": "^2.0",
+        "phpmailer/phpmailer": "^6.7",
+        "league/plates": "^3.4",
+        "monolog/monolog": "^2.8"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/",
+            "GTG\\DataLayer\\": "modules/gtg/datalayer/src"
+        },
+        "files": [
+            "src/Config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "guilhermetrindadev",
+            "email": "guiviveiro@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "minimum-stability": "stable"
+}

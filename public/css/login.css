@@ -1,0 +1,17 @@
+body {
+    background: linear-gradient(#b5f2ff, #aa91ff, #5a97f6, #0a0445);
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+#cardOne {
+    width: 30%;
+    opacity: 0.9;
+    box-shadow: -2px 4px 15px 0px rgba(0,0,0,0.75);
+}
+
+#bodyForm {
+    background-color: rgb(211, 214, 214);
+}

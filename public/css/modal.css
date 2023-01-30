@@ -1,0 +1,11 @@
+.viewEvent {
+    display: block;
+}
+
+.formEdit {
+    display: none;
+}
+
+.btnVoltar {
+    background: blue;
+}
