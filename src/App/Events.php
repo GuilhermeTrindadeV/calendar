@@ -69,6 +69,47 @@ class Events extends Controller
         echo json_encode($response);
     }
 
+    public function edit(array $data)
+    {
+        $user = getUserSession();
+        try {
+
+            $data_start = str_replace('/', '-', $data['start']);
+            $dbStart = date("Y-m-d H:i:s", strtotime($data_start));
+
+            $data_end = str_replace('/', '-', $data['end']);
+            $dbEnd = date("Y-m-d H:i:s", strtotime($data_end));
+
+            $dbEvent = Event::getOne([
+                "eve_id" => $data['event_id']
+            ]);
+            $dbEvent->getValues();
+            $this->getRoute("events.edit", [
+                "event_id" => $data["event_id"]
+            ]);
+
+            $response = ['sit' => true, 'msg' => '<div class="alert alert-success" 
+                    role="alert">Evento editado com sucesso '. $data['title'] .'!</div>'
+                ];
+
+                $response = ['sit' => true, 'msg' => '<div class="alert alert-danger" 
+                role="alert">Erro ao editar evento '.$data['title'].'!</div>'
+            ];
+            
+            $_SESSION['msg'] = '<div class="alert alert-success" 
+                role="alert">Evento editado com sucesso ' . $data['title'] .'!</div>';
+            } catch(Exception $e) {
+                $response = [
+                    'sit' => true,
+                    'msg' => '<div class="alert alert-danger" 
+                        role="alert">Erro ao editar evento ' . $data['title'] . ' Erro: ' . $e->getMessage().'</div>'
+                ];
+            }
+
+            header('Content-type: application/json');
+            echo json_encode($response);
+    }
+
     public function list()
     {
         $jEvents = [];

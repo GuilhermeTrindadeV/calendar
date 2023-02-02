@@ -90,6 +90,28 @@ $(document).ready(function() {
         $('.formEdit').slideToggle();
         $('.viewEvent').slideToggle();
     });
+
+    $("#editEvent").on("submit", function(event) {
+        event.preventDefault();
+
+        $.ajax({
+            method: "POST",
+            url: edit,
+            data: new FormData(this),
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                console.log(response);
+                if(response) {
+                    if(response['sit']) {
+                        location.reload();
+                    }else {
+                        $("#msg-edit").html(response['msg']);
+                    }
+                }
+            }
+        });
+    });
 });
 
 function DataHora(evento, objeto){

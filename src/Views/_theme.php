@@ -31,6 +31,7 @@
             <?= $this->section("content") ?>
             <script src="<?= url("node_modules/fullcalendar/index.global.js"); ?>"></script>
             <script> const salvar = <?php echo json_encode(url('eventos/salvar')) ?>; </script>
+            <script> const edit = <?php echo json_encode(url('eventos')) ?>; </script>
             <script> const route = <?php echo json_encode(url('eventos/list')) ?>; </script>
             <script src="<?= url("public/js/jquery.js"); ?>"></script>
             <script src="<?= url("public/js/jquery-ui.js"); ?>"></script>
