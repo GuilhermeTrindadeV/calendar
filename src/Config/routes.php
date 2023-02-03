@@ -14,6 +14,7 @@ $router->get("/", "Events:events", "events.events");
 $router->get("/list", "Events:list", "events.list");
 $router->post("/salvar", "Events:register", "events.register");
 $router->get("/edit/{event_id}", "Events:edit", "events.edit");
+$router->post("/edit/{event_id}", "Events:update", "events.update");
 
 $router->group('login');
 $router->get("/", "Web:login", "web.login");
