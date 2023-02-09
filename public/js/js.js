@@ -104,7 +104,8 @@ $(document).ready(function() {
                 console.log(response);
                 if(response) {
                     if(response['sit']) {
-                        location.reload();
+                        // location.reload();
+                        $("#msg-edit").html(response['msg']);
                     }else {
                         $("#msg-edit").html(response['msg']);
                     }

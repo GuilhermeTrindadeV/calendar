@@ -82,6 +82,9 @@ class Events extends Controller
             $dbEnd = date("Y-m-d H:i:s", strtotime($data_end));
 
             $dbRegister = Event::getById(intval($data['event_id']));
+            if(!$dbRegister) {
+                throw new Exception('O Evento que você está tentando atualizar não pôde ser encontrado!');
+            }
             $dbRegister->setValues([
                 "title" => $data["title"],
                 "description" => $data["description"],
