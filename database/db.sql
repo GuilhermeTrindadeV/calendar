@@ -9,7 +9,7 @@ CREATE TABLE usuarios (
 
 -- Tabela de Eventos
 CREATE TABLE eventos (
-    eve_id INT(1) AUTO_INCREMENT PRIMARY KEY,
+    id INT(1) AUTO_INCREMENT PRIMARY KEY,
     usu_id INT(1) NOT NULL,
     title VARCHAR(90),
     description TEXT,

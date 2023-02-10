@@ -81,11 +81,11 @@ class Events extends Controller
             $data_end = str_replace('/', '-', $data['end']);
             $dbEnd = date("Y-m-d H:i:s", strtotime($data_end));
 
-            $dbRegister = Event::getById(intval($data['event_id']));
-            if(!$dbRegister) {
-                throw new Exception('O Evento que você está tentando atualizar não pôde ser encontrado!');
-            }
+            $dbRegister = new Event();
+            
             $dbRegister->setValues([
+                "id" => $data["id"],
+                "usu_id" => $user->id,
                 "title" => $data["title"],
                 "description" => $data["description"],
                 "color" => $data["color"],
@@ -94,7 +94,7 @@ class Events extends Controller
             ]);
             $dbRegister->save();
 
-            $response['success'] = 'O evento foi atualizado com successo';
+            $response['msg'] = 'O evento foi atualizado com successo';
             } catch(Exception $e) {
                 $response = [
                     'sit' => true,
@@ -102,7 +102,7 @@ class Events extends Controller
                         role="alert">Erro ao editar evento ' . $data['title'] . ' Erro: ' . $e->getMessage().'</div>'
                 ];
             }
-
+            
             header('Content-type: application/json');
             echo json_encode($response);
     }
@@ -118,12 +118,11 @@ class Events extends Controller
             $data_end = str_replace('/', '-', $data['end']);
             $dbEnd = date("Y-m-d H:i:s", strtotime($data_end));
 
-            $dbRegister = Event::getById(intval($data['event_id']));
-            if(!$dbRegister) {
-                throw new Exception('O Evento que você está tentando atualizar não pôde ser encontrado!');
-            }
+            $dbRegister = new Event();
 
             $dbRegister->setValues([
+                "usu_id" => $user->id,
+                "id" => $data["id"],
                 "title" => $data["title"],
                 "description" => $data["description"],
                 "color" => $data["color"],
@@ -134,7 +133,6 @@ class Events extends Controller
             $dbRegister->save();
 
             $response['msg'] = '<div class="alert alert-success">Seu evento foi atualizado com sucesso</div>';
-    
     
         } catch(Exception $e) {
             $response['msg'] = '<div class="alert alert-danger">' . $e->getMessage() . '</div>';

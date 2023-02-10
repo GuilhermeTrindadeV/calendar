@@ -25,6 +25,9 @@
                 const modalToggle = document.getElementById('visualizar'); 
                 myModal.show(modalToggle)
 
+                $('#visualizar #id').text(info.event.id);
+                $('#visualizar #id').val(info.event.id);
+
                 $('#visualizar #title').text(info.event.title);
                 $('#visualizar #title').val(info.event.title);
 
@@ -65,7 +68,7 @@ $(document).ready(function() {
         $.ajax({
             method: "POST",
             url: salvar,
-            data: new FormData(this),
+            data: $(this).serialize(),
             contentType: false,
             processData: false,
             success: function(response) {
@@ -97,15 +100,14 @@ $(document).ready(function() {
         $.ajax({
             method: "POST",
             url: edit,
-            data: new FormData(this),
+            data: $(this).serialize(),
             contentType: false,
             processData: false,
             success: function(response) {
                 console.log(response);
                 if(response) {
                     if(response['sit']) {
-                        // location.reload();
-                        $("#msg-edit").html(response['msg']);
+                        location.reload();
                     }else {
                         $("#msg-edit").html(response['msg']);
                     }
@@ -116,7 +118,7 @@ $(document).ready(function() {
 });
 
 function DataHora(evento, objeto){
-    var keypress = (window.event) ? event.keyCode : evento.which;
+    var keypress = (window.event) ? evento.keyCode : evento.which;
     campo = eval(objeto);
     if(campo.value == '00/00/0000 00:00:00') {
         campo.value = "";
@@ -141,8 +143,8 @@ function DataHora(evento, objeto){
         else if(campo.value.length == conjunto4)
             campo.value = campo.value + separacao3;
         else if(campo.value.length == conjunto5)
-            campo.value = campo.value + separacao4;
+            campo.value = campo.value + separacao3;
     } else {
-        event.returnValue = false;
+        evento.returnValue = false;
     }
 }

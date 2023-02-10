@@ -8,7 +8,7 @@ use Src\Models\Model;
 class Event extends Model 
 {
     protected static $tableName = "eventos";
-    protected static $primaryKey = "eve_id";
+    protected static $primaryKey = "id";
     protected static $columns = [
         "usu_id",
         "title",

@@ -11,7 +11,7 @@
 
 <?php 
     $this->insert('components/event-details'); 
-    $this->insert('/save-event')
+    $this->insert('/save-event');
 ?>
 
 

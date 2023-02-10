@@ -13,6 +13,7 @@
 						<div class="form-group col-md-6">
 							<label for="title" class="form-label">Título</label>
 							<input type="text" class="form-control" name="title" id="title">
+							<input type="hidden" class="form-control" name="id" id="id">
 						</div>
 						<div class="form-group col-md-6">
 							<label for="description" class="form-label">Descrição</label>

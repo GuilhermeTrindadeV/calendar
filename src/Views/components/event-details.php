@@ -7,6 +7,7 @@
             </div>
                 <div class="modal-body text-center">
                     <div class="viewEvent">
+                        <input type="text" name="id" id="id" disabled>
                         <dl class="row bg bg-light pt-3">
                             <dt class="col-sm-5 mb-3">Título: </dt>
                             <dd class="col-sm-7 mb-3" name="title" id="title"></dd>
@@ -38,6 +39,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="title" class="form-label">Título</label>
                                     <input type="text" class="form-control" name="title" id="title">
+                                    <input type="hidden" class="form-control" name="id" id="id">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="description" class="form-label">Descrição</label>
