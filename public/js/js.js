@@ -72,12 +72,13 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(response) {
-                console.log(response);
+                // console.log(response);
                 if(response) {
                     if(response['sit']) {
-                        location.reload();
-                    }else {
                         $("#msg-cad").html(response['msg']);
+                    }else {
+                        location.reload(true);
+                        // $("#msg-cad").html(response['msg']);
                     }
                 }
             }
@@ -104,12 +105,12 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(response) {
-                console.log(response);
+                // console.log(response);
                 if(response) {
                     if(response['sit']) {
-                        location.reload();
-                    }else {
                         $("#msg-edit").html(response['msg']);
+                    }else {
+                        location.reload(true);
                     }
                 }
             }
