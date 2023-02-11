@@ -68,7 +68,7 @@ $(document).ready(function() {
         $.ajax({
             method: "POST",
             url: salvar,
-            data: $(this).serialize(),
+            data: new FormData(this),
             contentType: false,
             processData: false,
             success: function(response) {
@@ -100,7 +100,7 @@ $(document).ready(function() {
         $.ajax({
             method: "POST",
             url: edit,
-            data: $(this).serialize(),
+            data: new FormData(this),
             contentType: false,
             processData: false,
             success: function(response) {
