@@ -7,7 +7,7 @@
             </div>
                 <div class="modal-body text-center">
                     <div class="viewEvent">
-                        <input type="text" name="id" id="id" disabled>
+                        <input type="hidden" name="id" id="id" disabled>
                         <dl class="row bg bg-light pt-3">
                             <dt class="col-sm-5 mb-3">Título: </dt>
                             <dd class="col-sm-7 mb-3" name="title" id="title"></dd>
