@@ -171,6 +171,7 @@ class Events extends Controller
                 'msg' => '<div class="alert alert-danger">' . $e->getMessage() . '</div>'
             ];
         }
+        
         header('Content-type: application/json');
         echo json_encode($response);
     }
