@@ -75,10 +75,9 @@ $(document).ready(function() {
                 // console.log(response);
                 if(response) {
                     if(response['sit']) {
-                        $("#msg-cad").html(response['msg']);
-                    }else {
                         location.reload(true);
-                        // $("#msg-cad").html(response['msg']);
+                    }else {
+                        $("#msg-cad").html(response['msg']);
                     }
                 }
             }
@@ -105,12 +104,12 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(response) {
-                // console.log(response);
+                console.log(response);
                 if(response) {
                     if(response['sit']) {
-                        $("#msg-edit").html(response['msg']);
-                    }else {
                         location.reload(true);
+                    }else {
+                        $("#msg-edit").html(response['msg']);
                     }
                 }
             }

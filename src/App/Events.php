@@ -47,12 +47,16 @@ class Events extends Controller
             $dbEvent->save();
     
     
-        $response = ['sit' => true, 'msg' => '<div class="alert alert-success" 
-                role="alert">Evento cadastrado com sucesso '. $data['title'] .'!</div>'
+        $response = [
+                'sit' => true, 
+                'msg' => '<div class="alert alert-success" 
+                    role="alert">Evento cadastrado com sucesso '. $data['title'] .'!</div>'
             ];
 
-            $response = ['sit' => true, 'msg' => '<div class="alert alert-danger" 
-            role="alert">Erro ao cadastrar evento '.$data['title'].'!</div>'
+        $response = [
+            'sit' => true, 
+            'msg' => '<div class="alert alert-danger" 
+                role="alert">Erro ao cadastrar evento '.$data['title'].'!</div>'
         ];
         
         $_SESSION['msg'] = '<div class="alert alert-success" 
@@ -94,7 +98,21 @@ class Events extends Controller
             ]);
             $dbRegister->save();
 
-            $response['msg'] = 'O evento foi atualizado com successo';
+            $response = [
+                'sit' => true,
+                'msg' => '<div class="alert alert-success" role="alert">
+                    O evento foi atualizado com successo</div>'
+            ];
+
+            $response = [
+                'sit' => true,
+                'msg' => '<div class="alert alert-danger" role="alert">
+                    Erro ao atualizar o evento</div>'
+            ];
+
+            $_SESSION['msg'] = '<div class="alert alert-success" 
+            role="alert">Evento atualizado com sucesso ' . $data['title'] .'!</div>';
+
             } catch(Exception $e) {
                 $response = [
                     'sit' => true,
@@ -132,10 +150,26 @@ class Events extends Controller
 
             $dbRegister->save();
 
-            $response['msg'] = '<div class="alert alert-success">Seu evento foi atualizado com sucesso</div>';
+            $response = [
+                'sit' => true,
+                'msg' => '<div class="alert alert-success" role="alert">
+                    Seu evento foi atualizado com sucesso</div>'
+            ];
+
+            $response = [
+                'sit' => true,
+                'msg' => '<div class="alert alert-danger" role="alert">
+                    Erro ao atualizar evento</div>'
+            ];
+
+            $_SESSION['msg'] = '<div class="alert alert-success" 
+            role="alert">Evento atualizado com sucesso ' . $data['title'] .'!</div>';
     
         } catch(Exception $e) {
-            $response['msg'] = '<div class="alert alert-danger">' . $e->getMessage() . '</div>';
+            $response = [
+                'sit' => true,
+                'msg' => '<div class="alert alert-danger">' . $e->getMessage() . '</div>'
+            ];
         }
         header('Content-type: application/json');
         echo json_encode($response);
